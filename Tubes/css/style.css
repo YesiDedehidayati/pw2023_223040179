@@ -1,4 +1,4 @@
-root {
+:root {
   --primary: #a78e72;
   --bg: #010101;
 }
@@ -12,11 +12,14 @@ root {
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #ccbaa6;
   color: #010101;
-  min-height: 3000px;
 }
 
 /* navbar */
@@ -73,8 +76,42 @@ body {
   color: var(--primary);
 }
 
-#menu {
-  display: block;
+#hamburger-menu {
+  display: none;
+}
+
+/* Navbar Search Form */
+.navbar.search-form {
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  background-color: #fff;
+  width: 50rm;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+
+.navbar .search-form.active {
+  transform: scaleX(1);
+}
+
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--bg);
+  padding: 1rem;
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--bg);
 }
 
 /*Hero Section*/
@@ -137,19 +174,25 @@ body {
 
 /*about section*/
 .About,
-.menu {
+.menu,
+.order,
+.contact {
   padding: 5rem 7% 1.4rem;
 }
 
 .About h2,
-.menu h2 {
+.menu h2,
+.order h2,
+.contact h2 {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
 }
 
 .About h2 span,
-.menu h2 span {
+.menu h2 span,
+.order h2 span,
+.contact h2 span {
   color: var(--primary);
 }
 
@@ -183,11 +226,13 @@ body {
 }
 
 /* Menu Section */
-.menu h2 {
+.menu h2,
+.order h2 {
   margin: 1rem;
 }
 
-.menu p {
+.menu p,
+.order p {
   text-align: center;
   max-width: 30rem;
   margin: auto;
@@ -195,78 +240,61 @@ body {
   line-height: 1.6;
 }
 
-/* Media Queries */
-
-/* laptop */
-@media (max-width: 1366px) {
-  html {
-    font-size: 75%;
-  }
+.menu .row-menu {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  justify-content: center;
 }
 
-/* mobile phone */
-@media (max-width: 450px) {
-  html {
-    font-size: 55%;
-  }
+.menu .row-menu .menu-card {
+  text-align: center;
+  padding-bottom: 2rem;
 }
 
-/* tablet */
-@media (max-width: 758px) {
-  html {
-    font-size: 62.5%;
-  }
+.menu .row-menu .menu-card img {
+  width: 50%;
+}
 
-  #menu {
-    display: inline-block;
-  }
+.menu .row-menu .menu-card .menu-card-title {
+  margin: 1rem auto 0.5rem;
+}
 
-  .navbar .navbar-nav {
-    position: absolute;
-    top: 100%;
-    right: -100%;
-    background-color: #fff;
-    width: 30rem;
-    height: 100vh;
-    transition: 0.3s;
-  }
+/*Footer*/
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 1rem 03rem;
+  margin-top: 3rem;
+}
 
-  .navbar .navbar-nav .active {
-    right: 0;
-  }
+footer .socials {
+  padding: 1rem 0;
+}
 
-  .navbar .navbar-nav a {
-    color: var(--bg);
-    display: block;
-    margin: 1.5rem;
-    padding: 0.5rem;
-    font-size: 2rem;
-  }
+footer .socials a {
+  color: #010101;
+  margin: 1rem;
+}
 
-  .navbar .navbar-nav a::after {
-    transform-origin: 0 0;
-  }
+footer .socials a:hover,
+footer .links a:hover {
+  color: var(--bg);
+}
 
-  .navbar .navbar-nav a:hover::after {
-    transform: scaleX(0.2);
-  }
+footer .links {
+  margin-bottom: 1.4rem;
+}
+footer .links a {
+  color: #010101;
+  padding: 0.7rem 1rem;
+}
 
-  .About .row {
-    flex-wrap: wrap;
-  }
+footer .credit {
+  font-size: 0.8rem;
+}
 
-  .About .row .About-img img {
-    height: 24rem;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .About .row .content {
-    padding: 0;
-  }
-
-  .About .row .content h3 {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-  }
+footer .credit a {
+  color: var(--bg);
+  font-weight: 800;
 }
